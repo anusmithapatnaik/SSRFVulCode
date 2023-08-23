@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "compiling the code..."
+      - mvn clean package
+      - echo "compile complete"
+  postbuild:
+    commands:
+      - ls - al
+      - echo "Running tests"
+      - mvn com.hcl.security:appscan-maven-plugin:analyze -DsourceCodeOnly=True -DappId=VulCodeDemo -DappscanKey=fb711ca9-e65d-fa69-929f-e7d9a976b4be -DappscanSecret=iBEBvDfBc3oqp+6yc3Sfv9eAaoY9B6TOk5LIABuPfWqU
